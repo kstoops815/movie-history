@@ -1,6 +1,6 @@
 "use strict";
 
-const domString = (movieArray) => {
+const domString = (movieArray, imgConfig) => {
 	let domStrang = "";
 	for(let i=0; i < movieArray.length; i++) {
 		if (i % 3 === 0) {
