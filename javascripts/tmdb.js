@@ -3,7 +3,7 @@
 let tmdbKey;
 let imgConfig;
 
- const dom = require("./dom");
+const dom = require("./dom");
 
 const searchTMDB =(query) => {
 	// promise search movies
@@ -34,7 +34,6 @@ const getConfig = () => {
 		console.log("error in getConfig", error);
 	});
 };
-
 
 const searchMovies = (query) => {
 	// execute searchTMDB
