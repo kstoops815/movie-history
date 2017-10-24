@@ -1,6 +1,6 @@
 "use strict";
 
-const domString = (movieArray, imgConfig) => {
+const domString = (movieArray, imgConfig, divName) => {
 	let domStrang = "";
 	console.log("domstring", imgConfig);
 	for(let i=0; i < movieArray.length; i++) {
@@ -11,7 +11,7 @@ const domString = (movieArray, imgConfig) => {
 		domStrang += 	`<div class="thumbnail">`;
 		domStrang +=		`<img src="${imgConfig.base_url}w342/${movieArray[i].poster_path}" alt="">`;
 		domStrang +=		`<div class="caption">`;
-		domStrang +=			`<h3>${movieArray[i].original_title}</h3>`;	
+		domStrang +=			`<h3>${movieArray[i].title}</h3>`;	
 		domStrang +=			`<p>${movieArray[i].overview}</p>`;
 		domStrang +=			`<p><a href="#" class="btn btn-primary" role="button">Review</a> <a href="#" class="btn btn-default" role="button">Watchlist</a></p>`;
 		domStrang +=			`</div>`;
@@ -22,15 +22,15 @@ const domString = (movieArray, imgConfig) => {
 		}
 	}
 
-	printToDom(domStrang);  
+	printToDom(domStrang, divName);  
 };
 
-const printToDom = (strang) => {
-	$("#movies").append(strang);
+const printToDom = (strang, divName) => {
+	$(`#${divName}`).append(strang);
 };
 
-const clearDom = () => {
-	$("#movies").empty();
+const clearDom = (divName) => {
+	$(`#${divName}`).empty();
 };
 
 module.exports = {domString, clearDom};
