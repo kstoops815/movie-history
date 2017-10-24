@@ -5,8 +5,10 @@ let apiKeys = require("./apiKeys");
 
 
 apiKeys.retrieveKeys();
-events.pressEnter();
 events.myLinks();
+events.googleAuth();
+events.pressEnter();
+
 
 
 // let singleMovie = {
