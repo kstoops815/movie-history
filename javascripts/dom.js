@@ -13,7 +13,7 @@ const domString = (movieArray, imgConfig, divName) => {
 		domStrang +=		`<div class="caption">`;
 		domStrang +=			`<h3 class="title">${movieArray[i].title}</h3>`;	
 		domStrang +=			`<p class="overview">${movieArray[i].overview}</p>`;
-		domStrang +=			`<p><a href="#" class="btn btn-primary" role="button">Review</a>`; 
+		domStrang +=			`<p><a href="#" class="btn btn-primary review" role="button">Review</a>`; 
 		domStrang +=			`<a class="btn btn-default wishlist" role="button">Wishlist</a></p>`;
 		domStrang +=			`</div>`;
 		domStrang +=		`</div>`;

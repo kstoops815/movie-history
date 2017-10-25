@@ -5,10 +5,8 @@ let apiKeys = require("./apiKeys");
 
 
 apiKeys.retrieveKeys();
-events.myLinks();
-events.googleAuth();
-events.pressEnter();
-events.wishListEvents();
+
+events.init();
 
 
 

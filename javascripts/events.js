@@ -64,14 +64,50 @@ const wishListEvents = () => {
 			"isWatched": false,
 			"uid":""
 		};
-		console.log("newMovie", newMovie);
-		//firebaseApi.saveMovie().then().catch(;
+		
+		firebaseApi.saveMovie(newMovie).then((results) => {
+			$(mommy).remove();
+		}).catch((error) => {
+			console.log("error in saveMovie", error);
+		});
 
 	});
+};
+
+
+const reviewEvents = () => {
+	$("body").on("click", ".review", (e) =>{
+		let mommy = e.target.closest(".movie");
+		console.log("review event", e);
+
+		let newMovie = {
+			"title":$(mommy).find(".title").html(),
+			"overview":$(mommy).find(".overview").html(),
+			"poster_path":$(mommy).find(".poster_path").attr("src").split("/").pop(),
+			"rating": 0,
+			"isWatched": true,
+			"uid":""
+		};
+		
+		firebaseApi.saveMovie(newMovie).then((results) => {
+			$(mommy).remove();
+		}).catch((error) => {
+			console.log("error in saveMovie", error);
+		});
+
+	});
+};
+
+const init = () => {
+	myLinks();
+	googleAuth();
+	pressEnter();
+	wishListEvents();
+	reviewEvents();
 };
 
 
 
 
 
-module.exports = {pressEnter, myLinks, googleAuth, wishListEvents};
+module.exports = {init};
