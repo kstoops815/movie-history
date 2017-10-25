@@ -58,5 +58,18 @@ const saveMovie = (movie) => {
  
 };
 
+const deleteMovie = (movieId) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method:"DELETE",
+      url: `${firebaseKey.databaseURL}/movies/${movieId}.json`,
+    }).then((fbMovies) => {
+      resolve(fbMovies);
+    }).catch((error) => {
+      reject(error);
+    });
+  });
+};
 
-module.exports = {setKey, authenticateGoogle, getMovieList, saveMovie};
+
+module.exports = {setKey, authenticateGoogle, getMovieList, saveMovie, deleteMovie};

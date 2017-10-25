@@ -28,7 +28,7 @@ const myLinks = () => {
 			$("#authScreen").addClass("hide");
 			firebaseApi.getMovieList().then((results) => {
 				dom.clearDom("moviesMine");
-				dom.domString(results, tmdb.getImgConfig(), "moviesMine");
+				dom.domString(results, tmdb.getImgConfig(), "moviesMine", false);
 			}).catch((error) => {
 				console.log("error in get getMoviesList", error);
 			});
@@ -98,12 +98,31 @@ const reviewEvents = () => {
 	});
 };
 
+
+const deleteMovie = () => {
+	$("body").on("click", ".delete", (e) => {
+		let movieId = $(e.target).data("firebase-id");
+
+
+		firebaseApi.deleteMovie(movieId).then((results) => {
+			console.log("results", results);
+		}).catch((error) => {
+			console.log("movieId", movieId);
+		});
+	});
+};
+
+
+
+
+
 const init = () => {
 	myLinks();
 	googleAuth();
 	pressEnter();
 	wishListEvents();
 	reviewEvents();
+	deleteMovie();
 };
 
 
