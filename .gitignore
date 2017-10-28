@@ -2,3 +2,4 @@
 lib/node_modules
 db/apiKeys.json
 dist/app.js
+public
